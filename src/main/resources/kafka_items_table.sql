@@ -10,7 +10,6 @@ CREATE TABLE items (
   'connector' = 'kafka',
   'topic' = 'items',
   'properties.bootstrap.servers' = 'kafka:29092',
-  'properties.group.id' = 'testGroup',
   'scan.startup.mode' = 'earliest-offset',
   'format' = 'json'
 )
