@@ -1,4 +1,4 @@
-package org.acme.getting.started;
+package ibm.gse.eda.inventory.app;
 
 import org.apache.flink.table.api.*;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
