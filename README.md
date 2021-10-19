@@ -4,8 +4,10 @@ Flnk version of inventory item aggregator
 docker-compose up
 ```
 
-Open the simulator at http://localhost:8000
-Browse Kafka messages at http://localhost:9000
+Things to do:
+
+- Open the simulator at http://localhost:8000
+- Browse Kafka messages at http://localhost:9000
 
 Note: the `flink_job` service currently fails until the `item` topic appears in Kafka.
 Once items are generated, run `docker-compose start flink_job` to start the job.
