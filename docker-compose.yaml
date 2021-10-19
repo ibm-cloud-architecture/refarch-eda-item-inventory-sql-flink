@@ -85,16 +85,18 @@ services:
       - kafka
 
   # start a Flink session cluster to enable running Flink SQL client locally
-  flink_jobmanager:
+  jobmanager:
     build: .
-    container_name: flink_jobmanager
+    container_name: jobmanager
     command: jobmanager
     environment: &flink_environment
       FLINK_PROPERTIES: |
-        jobmanager.rpc.address: flink_jobmanager
+        jobmanager.rpc.address: jobmanager
         taskmanager.numberOfTaskSlots: 100
-  flink_taskmanager:
+  taskmanager:
     build: .
-    container_name: flink_taskmanager
+    depends_on:
+      - jobmanager
+    container_name: taskmanager
     command: taskmanager
     environment: *flink_environment
