@@ -20,8 +20,6 @@ RUN mvn install
 COPY src src/
 RUN mvn package
 
-RUN ls -l /usr/app/target
-
 ##############################################################################
 # Final image
 ##############################################################################
@@ -32,5 +30,5 @@ WORKDIR ${FLINK_HOME}
 RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 # add job jar and dependency jars
-COPY --from=build /usr/app/target/getting-started-1.0.0-SNAPSHOT.jar ${FLINK_HOME}/lib/job.jar
+COPY --from=build /usr/app/target/item-aggregator-1.0.0-SNAPSHOT.jar ${FLINK_HOME}/lib/job.jar
 COPY --from=build /usr/app/target/lib/* ${FLINK_HOME}/lib/

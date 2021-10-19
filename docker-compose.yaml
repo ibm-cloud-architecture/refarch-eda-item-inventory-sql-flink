@@ -84,19 +84,31 @@ services:
     depends_on:
       - kafka
 
+  flink_job:
+    build: .
+    container_name: flink_job
+    command:
+      - flink
+      - run
+      - --target
+      - local
+      - --class
+      - ibm.gse.eda.inventory.app.InventoryJob
+      - lib/job.jar
+
   # start a Flink session cluster to enable running Flink SQL client locally
-  jobmanager:
-    build: .
-    container_name: jobmanager
-    command: jobmanager
-    environment: &flink_environment
-      FLINK_PROPERTIES: |
-        jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 100
-  taskmanager:
-    build: .
-    depends_on:
-      - jobmanager
-    container_name: taskmanager
-    command: taskmanager
-    environment: *flink_environment
+  # jobmanager:
+  #   build: .
+  #   container_name: jobmanager
+  #   command: jobmanager
+  #   environment: &flink_environment
+  #     FLINK_PROPERTIES: |
+  #       jobmanager.rpc.address: jobmanager
+  #       taskmanager.numberOfTaskSlots: 100
+  # taskmanager:
+  #   build: .
+  #   depends_on:
+  #     - jobmanager
+  #   container_name: taskmanager
+  #   command: taskmanager
+  #   environment: *flink_environment
