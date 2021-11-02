@@ -1,7 +1,25 @@
-Flnk version of inventory item aggregator
+# Item Inventory with Flink
+
+This project illustrates how to use Flink SQL to implement the near real-time inventory scenario presented in
+different labs of [IBM event-driven reference architecture](https://ibm-cloud-architecture.github.io/refarch-eda/scenarios/realtime-inventory/). 
+
+The following diagram illustrates the potential architecture of the solution
+
+![](./docs/flink-sql-ex.png)
+
+The components of the solution includes at least:
+
+* A source of sell events, and we use the [Store Simulator app](https://github.com/ibm-cloud-architecture/refarch-eda-store-simulator) for that.
+* Event Streams as Kafka run time. (Strimzi for running locally in development mode)
+* Flink Run time to support task creation and job management
+* Elastic search for indexing computation
+
+## Run locally with docker compose
+
+If you have a recent version of docker, you can run 
 
 ```sh
-docker-compose up
+docker compose up -d
 ```
 
 Things to do:
