@@ -1,11 +1,10 @@
 # Item Inventory with Flink
 
-This project illustrates how to use Flink SQL to implement the near real-time inventory scenario presented in
-different labs of [IBM event-driven reference architecture](https://ibm-cloud-architecture.github.io/refarch-eda/scenarios/realtime-inventory/). 
+This project illustrates how to use Flink SQL to implement the near real-time inventory scenario presented in [IBM event-driven reference architecture](https://ibm-cloud-architecture.github.io/refarch-eda/scenarios/realtime-inventory/). 
 
 The following diagram illustrates the potential architecture of the solution
 
-![](./docs/flink-sql-ex.png)
+![](./docs/images/flink-sql-ex.png)
 
 The components of the solution includes at least:
 
@@ -25,9 +24,9 @@ docker compose up -d
 Things to do:
 
 - Open the simulator at http://localhost:8000
-- Browse Kafka messages at http://localhost:9000
+- Browse Kafka messages with Kafdrop at http://localhost:9000
 
-Note: the `flink_job` service currently fails until the `item` topic appears in Kafka.
+Note: the `flink_job` service currently fails until the `items` topic appears in Kafka.
 Once items are generated, run `docker-compose start flink_job` to start the job.
 Items are generated on the "Simulator" page in the UI.
 
